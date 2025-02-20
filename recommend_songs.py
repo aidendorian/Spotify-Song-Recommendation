@@ -113,7 +113,7 @@ def recommend_songs(user_songs, all_songs, embedding_model, top_n=20):
 
     recommended_indices = np.argsort(average_distances)[:top_n]
 
-    return list(df.iloc[recommended_indices]["track_name"])
+    return list("https://open.spotify.com/track/"+df.iloc[recommended_indices]["track_id"].values+" --> "+df.iloc[recommended_indices]["track_name"].values)
 
 # Using only the embedding layer of the Siamese Network
 embedding_model = Model(network.input, network.output)
